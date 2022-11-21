@@ -8,5 +8,68 @@ namespace eCommerce
 {
     public class carrello
     {
+        private string _id;
+        private prodotto[] Prodotti = new prodotto[100];
+        private int i = 0, pos = 0;
+        
+
+        public carrello(string iden)
+        {
+            _id = iden;
+        }
+        public string Id
+        {
+            get { return _id;}
+            private set { _id = value;}
+        }
+        public void Aggiungi(prodotto p)
+        {
+            if (i < 100 && p!=null)
+            {
+                Prodotti[i] = p;
+                i++;
+            }
+        }
+        private int ricerca(string id)
+        {
+            int m = 0,pos=0;
+            for (int i = 0; i < i; i++)
+            {
+                if (id == Prodotti[i].Nome)
+                {
+                    Prodotti[i] = null;  
+                }
+                else
+                {
+                    m++;
+                }
+                pos = m;
+            }
+            return pos;
+        }
+        private void Ricompatta(int posi)
+        {
+            for(int i = posi; i <= (i)-1; i++)
+            {
+                Prodotti[i]= Prodotti[i+1];
+            }
+            i--;
+        }
+        public void Rimuovi(string id)
+        {
+            pos=ricerca(id);
+            Ricompatta(pos);
+        }
+        public void Svuota()
+        {
+            for (int i = 0; i < Prodotti.Length; i++)
+            {
+                Prodotti[i] = null;
+            }
+        }
+        public prodotto[] GetProdotti()
+        {
+            return Prodotti;
+        }
     }
 }
