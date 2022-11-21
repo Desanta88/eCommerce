@@ -9,13 +9,14 @@ namespace eCommerce
     public class carrello
     {
         private string _id;
-        private prodotto[] Prodotti = new prodotto[100];
+        private prodotto[] Prodotti;
         private int i = 0, pos = 0;
         
 
         public carrello(string iden)
         {
             _id = iden;
+            Prodotti = new prodotto[100];
         }
         public string Id
         {
