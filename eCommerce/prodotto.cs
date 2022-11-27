@@ -71,5 +71,9 @@ namespace eCommerce
                 return true;
             return (this.Id == p.Id);
         }
+        public string ToString()
+        {
+            return "Prodotto " +Id+" " + Nome + " " + Produttore + " " + Descrizione + " " + Prezzo.ToString();
+        }
     }
 }
