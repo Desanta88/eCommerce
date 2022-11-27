@@ -14,11 +14,29 @@ namespace eCommerce
         private string _descrizione;
         private float _prezzo;
 
-        public prodotto(string iden, string pro,string name)
+        public prodotto(string iden, string pro,string name,string des,float price)
         {
             _id = iden;
             _produttore = pro;
             _nome = name;
+            _descrizione = des;
+            _prezzo = price;
+        }
+        public prodotto() : this("xxxxx", "xxxxx", "xxxxx", "xxxxx",10)
+        {
+
+        }
+        public prodotto(string iden, string pro, string name) : this(iden,pro,name,"xxxxx",10)
+        {
+
+        }
+        public prodotto(string iden, string pro, string name,string des) : this(iden, pro, name,des,10)
+        {
+
+        }
+        public prodotto(string iden, string pro, string name, float price) : this(iden, pro, name,"xxxxx", 10)
+        {
+
         }
         public  string Id
         {
@@ -44,6 +62,14 @@ namespace eCommerce
         {
             get { return _prezzo;} 
             set { _prezzo = value;}
+        }
+        private bool Equals(prodotto p)
+        {
+            if (p == null)
+                return false;
+            if (this == p)
+                return true;
+            return (this.Id == p.Id);
         }
     }
 }

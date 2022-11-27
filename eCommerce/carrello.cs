@@ -10,13 +10,17 @@ namespace eCommerce
     {
         private string _id;
         private prodotto[] Prodotti;
-        private int i = 0, pos = 0;
+        private int a = 0, pos = 0,duplicati=0;
         
 
         public carrello(string iden)
         {
             _id = iden;
             Prodotti = new prodotto[100];
+        }
+        public int NProdotti
+        {
+            get { return a; }
         }
         public string Id
         {
@@ -25,52 +29,50 @@ namespace eCommerce
         }
         public void Aggiungi(prodotto p)
         {
-            if (i < 100 && p!=null)
+            if (a < 100 && p!=null)
             {
-                Prodotti[i] = p;
-                i++;
+                Prodotti[a] = p;
+                a++;
             }
         }
-        private int ricerca(string id)
+        private int Esiste(prodotto p)
         {
-            int m = 0,pos=0;
-            for (int i = 0; i < i; i++)
-            {
-                if (id == Prodotti[i].Nome)
-                {
-                    Prodotti[i] = null;  
-                }
-                else
-                {
-                    m++;
-                }
-                pos = m;
-            }
-            return pos;
+           for(int i = 0; i < a; i++)
+           {
+              if (p!=null && Prodotti[i].Equals(p))
+                   return i;
+           }
+           return -1;
         }
         private void Ricompatta(int posi)
         {
-            for(int i = posi; i <= (i)-1; i++)
+            for(int i = posi; i < a-1; i++)
             {
                 Prodotti[i]= Prodotti[i+1];
             }
-            i--;
+            a--;
         }
-        public void Rimuovi(string id)
+        public void Rimuovi(prodotto p)
         {
-            pos=ricerca(id);
-            Ricompatta(pos);
+            pos = Esiste(p);
+            if(pos!=-1)
+              Ricompatta(pos);
         }
         public void Svuota()
         {
-            for (int i = 0; i < Prodotti.Length; i++)
+            for (int i = 0; i < a; i++)
             {
                 Prodotti[i] = null;
+                a--;
             }
         }
         public prodotto[] GetProdotti()
         {
             return Prodotti;
+        }
+        public int getDuplicati()
+        {
+            return duplicati;
         }
     }
 }
