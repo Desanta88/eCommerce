@@ -33,12 +33,11 @@
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.SvuotaCarrello = new System.Windows.Forms.Button();
-            this.listViewCarrello = new System.Windows.Forms.ListView();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.svuotaCarrelloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.listViewCarrello = new System.Windows.Forms.ListView();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -75,46 +74,27 @@
             this.toolStripMenuItem1.Text = "Metti nel carrello";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
-            // SvuotaCarrello
-            // 
-            this.SvuotaCarrello.Location = new System.Drawing.Point(345, 408);
-            this.SvuotaCarrello.Name = "SvuotaCarrello";
-            this.SvuotaCarrello.Size = new System.Drawing.Size(120, 30);
-            this.SvuotaCarrello.TabIndex = 1;
-            this.SvuotaCarrello.Text = "Svuota il carrello";
-            this.SvuotaCarrello.UseVisualStyleBackColor = true;
-            this.SvuotaCarrello.Click += new System.EventHandler(this.SvuotaCarrello_Click);
-            // 
-            // listViewCarrello
-            // 
-            this.listViewCarrello.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader2});
-            this.listViewCarrello.ContextMenuStrip = this.contextMenuStrip2;
-            this.listViewCarrello.Location = new System.Drawing.Point(513, 34);
-            this.listViewCarrello.Name = "listViewCarrello";
-            this.listViewCarrello.Size = new System.Drawing.Size(263, 404);
-            this.listViewCarrello.TabIndex = 2;
-            this.listViewCarrello.UseCompatibleStateImageBehavior = false;
-            this.listViewCarrello.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Prodotti";
-            this.columnHeader2.Width = 120;
-            // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2});
+            this.toolStripMenuItem2,
+            this.svuotaCarrelloToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(119, 26);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 48);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(118, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem2.Text = "Rimuovi";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // svuotaCarrelloToolStripMenuItem
+            // 
+            this.svuotaCarrelloToolStripMenuItem.Name = "svuotaCarrelloToolStripMenuItem";
+            this.svuotaCarrelloToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.svuotaCarrelloToolStripMenuItem.Text = "Svuota carrello";
+            this.svuotaCarrelloToolStripMenuItem.Click += new System.EventHandler(this.svuotaCarrelloToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -124,14 +104,23 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "il tuo carrello";
             // 
+            // listViewCarrello
+            // 
+            this.listViewCarrello.Location = new System.Drawing.Point(525, 25);
+            this.listViewCarrello.Name = "listViewCarrello";
+            this.listViewCarrello.Size = new System.Drawing.Size(263, 404);
+            this.listViewCarrello.TabIndex = 4;
+            this.listViewCarrello.UseCompatibleStateImageBehavior = false;
+            this.listViewCarrello.View = System.Windows.Forms.View.Details;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.ContextMenuStrip = this.contextMenuStrip2;
             this.Controls.Add(this.listViewCarrello);
-            this.Controls.Add(this.SvuotaCarrello);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.listViewProdotti);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -144,14 +133,13 @@
         #endregion
 
         private ListView listViewProdotti;
-        private Button SvuotaCarrello;
-        private ListView listViewCarrello;
         private Label label1;
         private ColumnHeader columnHeader1;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem toolStripMenuItem1;
-        private ColumnHeader columnHeader2;
         private ContextMenuStrip contextMenuStrip2;
         private ToolStripMenuItem toolStripMenuItem2;
+        private ListView listViewCarrello;
+        private ToolStripMenuItem svuotaCarrelloToolStripMenuItem;
     }
 }

@@ -10,69 +10,76 @@ namespace eCommerce
     {
         private string _id;
         private prodotto[] Prodotti;
-        private int a = 0, pos = 0,duplicati=0;
-        
+        private int i = 0, pos = 0;
+
 
         public carrello(string iden)
         {
             _id = iden;
             Prodotti = new prodotto[100];
         }
-        public int NProdotti
-        {
-            get { return a; }
-        }
         public string Id
         {
-            get { return _id;}
-            private set { _id = value;}
+            get { return _id; }
+            private set { _id = value; }
         }
         public void Aggiungi(prodotto p)
         {
-            if (a < 100 && p!=null)
+            if (i < 100 && p != null)
             {
-                Prodotti[a] = p;
-                a++;
+                p.Id = "p" + i;
+                Prodotti[i] = p;
+                i++;
             }
         }
-        private int Esiste(prodotto p)
+        private int ricerca(string id)
         {
-           for(int i = 0; i < a; i++)
-           {
-              if (p!=null && Prodotti[i].Equals(p))
-                   return i;
-           }
-           return -1;
+            int m = 0, pos = 0;
+            for (int i = 0; i < i; i++)
+            {
+                if (id == Prodotti[i].Id)
+                {
+                    Prodotti[i] = null;
+                }
+                else
+                {
+                    m++;
+                }
+                pos = m;
+            }
+            return pos;
         }
         private void Ricompatta(int posi)
         {
-            for(int i = posi; i < a-1; i++)
+            for (int i = posi; i <= (i) - 1; i++)
             {
-                Prodotti[i]= Prodotti[i+1];
+                Prodotti[i] = Prodotti[i + 1];
             }
-            a--;
+            i--;
         }
-        public void Rimuovi(prodotto p)
+        public void Rimuovi(string id)
         {
-            pos = Esiste(p);
-            if(pos!=-1)
-              Ricompatta(pos);
+            pos = ricerca(id);
+            Ricompatta(pos);
         }
         public void Svuota()
         {
-            for (int i = 0; i < a; i++)
+            for (int i = 0; i < Prodotti.Length; i++)
             {
                 Prodotti[i] = null;
-                a--;
             }
         }
         public prodotto[] GetProdotti()
         {
             return Prodotti;
         }
-        public int getDuplicati()
+        public int GetNProdotti()
         {
-            return duplicati;
+            return i;
+        }
+        public void SetNProdotti(int p)
+        {
+            i = p;
         }
     }
 }
